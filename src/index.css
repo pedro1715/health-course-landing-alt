@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Syne:wght@400..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-sand text-navy font-sans antialiased overflow-x-hidden; }
+  h1, h2, h3 { @apply font-display; }
+}
+
+/* Background grain noise effect */
+.bg-grain-sand {
+  background-color: #FAF4EC;
+  background-image: radial-gradient(at 50% 0%, rgba(245, 196, 48, 0.15) 0px, transparent 70%),
+                    radial-gradient(at 100% 100%, rgba(21, 49, 126, 0.08) 0px, transparent 60%);
+}
+
+.bg-grain-blue {
+  background-color: #0B112C;
+  background-image: radial-gradient(circle at 50% 30%, #15317E 0%, #070814 80%);
+}
+
+/* Glassmorphism */
+.glass-header {
+  background: rgba(250, 244, 236, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-card-navy {
+  background: rgba(13, 14, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+@layer components {
+  /* ── Buttons ─────────────────────────────── */
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 bg-navy text-white font-sans font-medium text-sm
+           px-7 py-3.5 rounded-full transition-all duration-300
+           hover:bg-navy-soft hover:shadow-float active:scale-[0.97];
+  }
+  .btn-yellow {
+    @apply inline-flex items-center justify-center gap-2 bg-yellow text-navy font-sans font-semibold text-sm
+           px-7 py-3.5 rounded-full transition-all duration-300
+           hover:brightness-105 hover:shadow-float active:scale-[0.97];
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-navy/20 text-navy font-sans font-medium text-sm
+           px-7 py-3.5 rounded-full bg-white/80 backdrop-blur-md transition-all duration-300
+           hover:border-navy/50 hover:shadow-card active:scale-[0.97];
+  }
+  
+  .btn-circle-dark {
+    @apply w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center shrink-0
+           transition-all duration-300 hover:bg-navy-soft hover:shadow-float active:scale-[0.95];
+  }
+  .btn-circle-outline {
+    @apply w-10 h-10 rounded-full border border-navy/20 bg-white/80 text-navy flex items-center justify-center
+           transition-all duration-300 hover:border-navy/50 hover:shadow-card;
+  }
+
+  /* ── Cards ───────────────────────────────── */
+  .card {
+    @apply bg-white rounded-3xl shadow-card transition-all duration-300 hover:shadow-float;
+  }
+  .card-yellow {
+    @apply bg-yellow rounded-3xl transition-all duration-300 hover:shadow-float;
+  }
+  .card-navy {
+    @apply bg-navy rounded-3xl text-white;
+  }
+  .card-sky {
+    @apply bg-sky rounded-3xl;
+  }
+
+  /* ── Tags / Pills ────────────────────────── */
+  .pill {
+    @apply inline-flex items-center gap-1.5 bg-white/90 border border-navy/10
+           text-navy text-xs font-medium px-4 py-2 rounded-full shadow-sm;
+  }
+  .pill-dark {
+    @apply inline-flex items-center gap-1.5 bg-navy text-white
+           text-xs font-medium px-4 py-2 rounded-full;
+  }
+  .pill-yellow {
+    @apply inline-flex items-center gap-1.5 bg-yellow text-navy
+           text-xs font-semibold px-4 py-2 rounded-full;
+  }
+
+  /* ── Typography ──────────────────────────── */
+  .display-heading {
+    @apply font-display font-bold text-navy leading-[1.08] tracking-tight;
+  }
+  .section-label {
+    @apply text-xs font-sans font-semibold tracking-widest uppercase text-muted-dark;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FAF4EC; }
+::-webkit-scrollbar-thumb { background: #F5C430; border-radius: 10px; }
+
